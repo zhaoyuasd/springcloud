@@ -5,15 +5,20 @@ import com.netflix.zuul.context.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
+
 /**
  * MyFilter
  *
  * @author zhangzhidong
  * @since 2018/5/14
  */
+
+@Component
 public class DealServerError extends ZuulFilter {
 
 	 public Object run() {
+		 System.out.println("error");
 	    	RequestContext ctx = RequestContext.getCurrentContext();
 	        ctx.setSendZuulResponse(false);
 			ctx.setResponseStatusCode(401);
